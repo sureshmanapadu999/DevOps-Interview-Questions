@@ -1,0 +1,367 @@
+
+Roles and Responsibilities in SonarQube Server
+---------------------------------------------
+
+Install the SonarQube Server
+
+Configure Sonarqube Server Details in pom.xml
+
+Creating  Users / Configure LDAP Server
+
+Creating Groups
+
+Create the Quality Profiles as per Project requirement.
+
+Create the Quality Gates as per Project requirement.
+
+
+Roles and Responsibilities in Nexus Server
+-----------------------------------------
+
+Install the Nexus Server
+
+Create the Repositories (Maven2 - hosted,Proxy and group, Docker, Node JS)
+
+Configure Nexus Repository Details in pom.xml and credentials in settings.xml
+
+Creating  Users / Configure LDAP Server
+
+
+Red Hat Enterprise Linux Server release 7.6 (Maipo) 
+Ubuntu 14.04.03 LTS 
+
+GitHub Enterprise 2.14.10
+
+Maven 3.6.4
+Tomcat 9.x
+WildFly 16.0.0.Final
+SonarQube Version 7.x
+Nexus 3.x 
+Jenkins 2.46.2 
+Docker   19 
+Ansible 2.x
+
+
+Happiest Minds 
+
+1.Tell me about yourself and your roles and responsibilities?
+
+2.What is the difference between merge and rebase commands in git?
+Git rebase and merge both integrate changes from one branch into another.Rebasing is the process of moving or combining a sequence of commits to a new base commit. Git merge adds a new commit, preserving the history.
+
+3.What are the Git branching strategies are you using in your project?
+A “branching strategy” refers to the strategy a software development team employs when writing, merging, and shipping code in the context of a version control system like Git. Software developers working as a team on the same codebase must share their changes with each other
+
+4.How to trigger a build at midnight in Jenkins?
+while creating job to select option build periodicaly and type 0 0 * * *
+
+5.If I have 5 stages in Jenkins pipeline, how to run 2 stages parallel?
+
+
+6.Given 1 example.war file, asked me to write Dockerfile and asked me what are the commands you use to create image and run the container?
+1. Create Dockerfile
+	Dockerfile
+		FROM tomcat:8.0.20-jre8
+		COPY target/example*.war /usr/local/tomcat/webapps/example.war
+2. Build the Docker Image
+		docker build -t img name . [. means current location file]
+3. Run Docker Container
+		docker run -tid --name containername imgname /bin/bash
+
+7.How to deploy application without downtime in K8s?
+using rolling update strategy aims to prevent application downtime by keeping at least some instances up-and-running at any point in time while performing the updates.
+
+nterview Questions asked on 21Jan2022.
+========================================
+
+1) How many shell types are there in linux?
+Shell				Complete path-name		Prompt for non root user
+Bourne shell (sh)		/bin/sh and /sbin/sh		$
+GNU Bourne-Again shell (bash)	/bin/bash			bash-VersionNumber$
+C shell (csh)			/bin/csh			%
+Korn shell (ksh)		/bin/ksh			$
+The Z Shell or zsh		/bin/zsh			<hostname>%
+
+2) How do you check performance of linux server?
+top Linux Process Monitoring. ...
+ps -ef
+
+3) How to check disk space in linux/disk utilisation in linux?
+df -H
+df
+
+4) Types of variables in shell scripting?
+System defined Variables:
+Created and maintained by Linux bash shell itself. This type of variable is defined in CAPITAL 
+LETTERS.
+Eg: BASH, PATH, PWD, USERNAME, GROUPS, HOME, HOSTNAME
+
+User defined Variables:
+Created and maintained by user. This type of variable defined may use any valid variable name, but 
+it is good practice to avoid all uppercase names as many are used by the shell.
+#! /bin/bash
+varname=DevOps
+echo 'Displaying the user defined the varibale (varname) value is: '$varname
+
+5) How many s3 buckets you can create Max in AWS account?
+By default, you can create up to 100 buckets in each of your AWS accounts. If you need additional buckets, you can increase your account bucket limit to a maximum of 1,000 buckets by submitting a service limit increase.
+
+6) How many Max VPC's and Subnets we can created in AWS?
+By default you can create up to 5 VPCs
+Currently you can create 200 subnets per VPC. If you would like to create more, please submit a case at the support center.
+You are initially limited to launching 20 Amazon EC2 instances at any one time and a maximum VPC size of /16 (65,536 IPs).
+
+7) Types of load balancers in AWS?
+is 4
+  1 classic LB
+  2 application LB
+  3 network LB
+  4 internet gateway LB
+
+8) How to check the Application response in Load Balancer or how do you check health of application in load balancer?
+
+9) what is the min. and Max size of s3 Bucket?
+The total volume of data and number of objects you can store are unlimited. Individual Amazon S3 objects can range in size from a minimum of 0 bytes to a maximum of 5 TB. The largest object that can be uploaded in a single PUT is 5 GB.
+
+10) Types of networks in Docker?
+there are 3 types
+	1.Bridge
+	2.Host
+	3.None
+
+11) How to remove dangling images?
+Dangling images are layers that have no relationship to any tagged images. They no longer serve a purpose and consume disk space.
+docker rmi -f $(docker images -f "dangling=true" -q)
+11.1) How to remove all stopped containers?
+docker rm -f $(docker ps -a -q)
+
+12) How to create empty file in Ansible?
+ansible all -m file -a "path=/root/filenam.txt state=touch"
+
+13) what is the main difference between Docker/Docker swarm and Kubernatees(K8's) ?
+The purpose of designing Docker was to create an environment for running containers. Whereas Docker Swarm runs on top of many Docker hosts to orchestrate containers on many machines
+Docker Swarm applications are services or microservices you can deploy using YAML files or Docker Compose. Kubernetes provides a broader range of options, such as a combination of namespaces, pods, and deployments.
+
+14) How to push docker images to docker repository/Docker hub?
+docker login
+docker tag imgname repocitoryname/imgname:latest
+docker push repocitoryname/imgname:latest
+
+15) what is docker-compose file and how do you deploy application using it?
+Docker Compose is a tool that was developed to help define and share multi-container applications.
+Docker Compose is an orchestration tool for Docker that allows you to define a set of containers and their interdependencies in the form of a YAML file. and the file shoud contain all the dependencies to the container and container shoud be defind in services
+docker-compose up -d
+
+16) How to run jobs in background in linux?
+using & (ampersend) 
+(&) symbol at the end of the command line
+
+17) what is ansible tower?
+Ansible Tower is the enterprise version of Ansible, and it helps organizations and teams scale quickly and effectively. There is a cost associated with adopting it, installing it, and getting the software up and running in your environments.
+
+18) what is the Ansible role ?
+Ansible role is a set of tasks to configure a host to serve a certain purpose like configuring a service.
+roles let you automatically load related vars,fie,tasks,handlers&others. Ansible artifacts based on aknow file structure. After your group content in roles you can easily reuse them & share them with others.
+
+18.1)what is Handlers in ansible
+handlers are specific tasks that only get excutedvia the notify directive.Handlers are excuted at the end of the play, onc all tasks are finished
+
+19) How to check no.of ".pdf" files in directory in linux?
+find . -type f -name "*.pdf" | wc -l  
+ls -1 *.mp4 | wc -l
+
+How to check no.of ".pdf" files in linux?
+find . -type f -name "*.pdf"
+
+20) what is Branching strategy you have used?
+Task Branching, Feature branching and Release branching are the three branching strategies.
+1. Task Branching: Along with the task key comprised in the branch name, each task is employed on 
+its own branch.
+2. Feature branching: The whole changes for a feature is placed inside a branch. Once the feature 
+branch is completely tested and evaluated using automated tests, a merge happens between the 
+branch and master.
+3. Release branching: When the develop branch has acquired enough features for a release, it is 
+possible to clone that specific branch and form a release branch. Once the release branch is 
+formed, we cannot add any new features and the next release cycle starts.
+
+21) How to allow branch merging in git if previous build is success ?
+
+22) what is difference between copy and template modules in Ansible?
+The copy module – to copy files from ansible control machine local to the remote machine, host/host group
+
+
+23) How to create multi configuration as parameters pipeline project in Jenkins?
+To execute the Jenkins job from Jenkins web interface first go to respective project workspace and then click on “Build with Parameters” option from left panel. After that, you will be asked to choose/set parameter value
+in pipeline we can pass parameters as input in stage
+
+24) How to move Jenkins from one server to other server with how many different ways?
+ Copy all the files in your JENKINS_HOME directory over to the new server.
+
+ Point JENKINS_HOME on the new server at the new directory.
+
+ Copy the Jenkins war file over to the new machine and start it up.
+• We can copy or backup, we need to backup JENKINS_HOME directory which contains the details of all the job configurations, build details etc.
+
+25) How to move on-premise machines to AWS cloud?
+
+
+26) what is the Jenkins home directory?
+/var/lib/JENKINS_HOME
+
+27) can you tell me the components of Ansible?
+inventorry
+plugins
+modules
+playbooks
+tasks
+plays
+
+28) what is VPC Peering?
+A VPC peering connection helps you to facilitate the transfer of data. For example, if you have more than one AWS account, you can peer the VPCs across those accounts to create a file sharing network. You can also use a VPC peering connection to allow other VPCs to access resources you have in one of your VPCs.
+
+29) why we need to use repositories such as nexus or Docker hub, since we have already Git /Bitbucket/svn?
+github -- is used to store developers project files
+nexus -- is used store artifacts and binaries
+dockerhub - is used to store images
+
+30) I have some code in Bit bucket how do you get it to GitHub?
+
+
+I forgot some of the question...he and she asked 35 to 40 questions, i can able remember 30 as of now?
+=========================================
+Interview Questions
+				
+				
+1) Tell me about yourself
+2) Tell me about your current working project
+3) what is VPC? 
+A virtual private cloud (VPC) is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS Cloud. You can launch your AWS resources, such as Amazon EC2 instances, into your VPC. ... A subnet is a range of IP addresses in your VPC
+
+4) What is NAT gateway?
+A NAT gateway gives cloud resources without public IP addresses access to the internet without exposing those resources to incoming internet connections.
+
+5) What is secutity Groups? how can u provide access to specific users using secrity group?
+A security group acts as a virtual firewall for your EC2 instances to control inbound and outbound traffic. When you launch an EC2 instance in a VPC, you can assign up to five security groups to the instance
+
+6) What is Difference b/w EKS and ECS
+Amazon Elastic Container Service (Amazon ECS) is a scalable managed service that lets you run and orchestrate a large number of containers. It is not based on Kubernetes.
+Amazon Elastic Kubernetes Service (EKS) lets you run Kubernetes on AWS as a managed service, while retaining compatibility with the open source K8s project.
+
+7) What is Difference b/w git and github? 
+Git is a version control system that lets you manage and keep track of your source code history. GitHub is a cloud-based hosting service that lets you manage Git repositories
+
+8) What is branch and tag? how do they differ?
+The difference between tags and branches are that a branch always points to the top of a development line and will change when a new commit is pushed whereas a tag will not change. Thus tags are more useful to "tag" a specific version and the tag will then always stay on that version and usually not be changed
+
+9) What is git cherry pick
+Cherry pick is the act of picking a commit from a branch and applying it to another. git cherry-pick can be useful for undoing changes
+
+10) how u copy a file from one server to another?
+Change to the source directory on the local system.
+scp -i keylocation sourcefile username@ip:destPath
+
+11) how u check CPU utilisation?
+top
+
+12) what is top command?
+top command is used to show the Linux processes. 
+this command shows the summary information of the system and the list of processes or threads which are currently managed by the Linux Kernel.
+
+13) what is maven? why it is popular?
+Maven is a build automation tool used primarily for Java projects. ... Maven dynamically downloads Java libraries and Maven plug-ins from one or more repositories such as the Maven 2 Central Repository, and stores them in a local cache.
+
+14) what is nexus?
+Nexus by Sonatype is a repository manager that organizes, stores and distributes artifacts needed for development. With Nexus, developers can completely control access to, and deployment of, every artifact in an organization from a single location, making it easier to distribute software.
+
+15) what do u mean by ci/cd ?
+Continuous integration is a DevOps software development practice where developers regularly merge their code changes into a central repository, after which automated builds and tests are run
+Continuous delivery lets developers automate testing beyond just unit tests so they can verify application updates across multiple dimensions before deploying to production
+
+16) how is jenkins secured?
+Login to Jenkins with your credentials.
+Go to "Manage Jenkins".
+Go to "Configure Global Security".
+In the option "Authorization" 
+Matrix-based security. This authorization scheme allows for granular control over which users and groups are able to perform which actions in the Jenkins environment
+
+17) write a jenkins script using notepad
+
+
+18) how to see all running containers?
+docker ps
+
+19) how u remove all stopped containers?
+docker rm -f $(docker ps -a -q)
+docker container prune
+
+20) write a simple docker file
+vi Dockerfile
+
+
+21) what is ansible vault
+Ansible Vault is an Ansible feature that helps you encrypt confidential information without compromising security. ... Ansible provides a feature named Ansible Vault that prevents this data from being exposed. It keeps passwords and other sensitive data in an encrypted file rather than in plain text files
+
+22) what is ansible roles? why we use roles? 
+Ansible role is a set of tasks to configure a host to serve a certain purpose like configuring a service.
+roles let you automatically load related vars,fie,tasks,handlers&others. Ansible artifacts based on aknow file structure. After your group content in roles you can easily reuse them & share them with others.
+
+23) what is hypervisor?
+A hypervisor is software that creates and runs virtual machines (VMs). A hypervisor allows one host computer to support multiple guest VMs by virtually sharing its resources, such as memory and processing
+
+24) SDLC -- explain the phases..
+Software Development Life Cycle is the application of standard business practices to building software applications. It's typically divided into six to eight steps: Planning, Design, Build, Document, Test, Deploy, Maintain. ... SDLC is a way to measure and improve the development process
+
+25)what is agent any in jenkins?
+The “agent” section configures on which nodes the pipeline can be run. Specifying “agent any” means that Jenkins will run the job on any of the available nodes.
+
+26) what is virtualisation?
+In computing, virtualization is the act of creating a virtual version of something, including virtual computer hardware platforms, storage devices, and computer network resources
+
+27) docker swarm vs k8s?
+ 
+28) why we use docker compose file?
+Docker Compose is a tool that was developed to help define and share multi-container applications
+
+29) explain k8s architecture?
+Kubernetes itself follows a client-server architecture, with a master node composed of etcd cluster, kube-apiserver, kube-controller-manager, cloud-controller-manager, scheduler. Client (worker) nodes are composed of kube-proxy and kubelet components,all the machines
+in cluster included with runtime environmemnt 
+
+30) what is dynamic inventory in ansible?
+The dynamic inventory script can do anything to get the data (call an external API, pull information from a database or file, etc.)
+
+31) how to deploy docker image in nexus repository?
+
+
+32) how many ways we can create docker images?
+Two ways to create a Docker image
+In this guide, we're going to look at two methods for creating a new Docker image: Create a Docker image from an existing container: In this case, you start with an existing image, customize it with the changes you want, then build a new image from it.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I attended today one interview..
+what is ansible ?
+
+how do u copy the ssh keys ? what cmd u give ?
+ssh-keygen -t rsa
+ssh-copy-id username @ node_name.
+
+what is inventory and types ? have u worked in Dynamic inventory ?
+
+
+what are the modules u have in ansible ?
+
+
+write a command using ansible ?
+
+
+what is the use of ansible.config file ?
+what is Loops ?
+tell the modules in ansible apart from user,copy ?
+what are the vars concept in ansible ?
+
+how will u solve the merge conflit?
+diff b/w git pull and git fetch?
+what is diff b/w git rebase and git merge ?
+what you do in  maven build tool?
+what is docker and how will you create docker images ?
+
